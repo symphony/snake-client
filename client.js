@@ -10,18 +10,24 @@ const connect = () => {
 
   conn.on('connect', (data) => {
     console.log('Connected to server!');
-  });
-
-  conn.on('data', (data) => {
-    console.log('Server says: ', data);
+    conn.write("Name: jc🙂");
   });
 
   conn.on('end', () => {
     console.log('Disconnected from server.');
   });
 
+  listen(conn);
+  return;
+};
+
+const listen = conn => {
   conn.on('connect', () => {
-    conn.write("Name: jc🙂");
+    setInterval(() => conn.write("Move: up"), 50);
+  });
+
+  conn.on('data', (data) => {
+    console.log('Server says: ', data);
   });
 
   return;
