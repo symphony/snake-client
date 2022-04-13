@@ -21,7 +21,7 @@ const connect = () => {
   });
 
   conn.on('connect', () => {
-    conn.write("Player 1 has joined.");
+    conn.write("Name: jc🙂");
   });
 
   return;
