@@ -8,29 +8,20 @@ const connect = () => {
   const conn = net.createConnection(config);
   conn.setEncoding('utf8'); // interpret data as text
 
-  conn.on('connect', (data) => {
-    console.log('Connected to server!');
+  conn.on('connect', () => {
+    console.log('# Connected to server! #');
     conn.write("Name: jc🙂");
   });
 
-  conn.on('end', () => {
-    console.log('Disconnected from server.');
-  });
-
-  listen(conn);
-  return;
-};
-
-const listen = conn => {
-  conn.on('connect', () => {
-    setInterval(() => conn.write("Move: up"), 50);
-  });
-
   conn.on('data', (data) => {
-    console.log('Server says: ', data);
+    console.log('Server: ', data);
   });
 
-  return;
+  conn.on('end', () => {
+    console.log('# Disconnected from server. #\n');
+  });
+
+  return conn;
 };
 
 module.exports = {connect};
