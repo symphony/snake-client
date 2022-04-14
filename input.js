@@ -1,5 +1,4 @@
 let connection;
-const validMovements = ["w", "a", "s", "d"];
 const move = {
   w: "up",
   a: "left",
@@ -27,7 +26,7 @@ const disconnect = () => {
 
 const handleUserInput = key => {
   if (key === '\u0003') disconnect();
-  if (validMovements.includes(key)) connection.write(`Move: ${move[key]}`);
+  if (move[key] !== undefined) connection.write(`Move: ${move[key]}`);
   if (key === "h") connection.write(`Say: hello`);
 };
 
