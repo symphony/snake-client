@@ -3,7 +3,7 @@ const move = {
   w: "up",
   a: "left",
   d: "right",
-  s: "left"
+  s: "down"
 };
 
 const setupInput = (conn) => {
