@@ -9,7 +9,7 @@ const connect = () => {
   conn.setEncoding('utf8'); // interpret data as text
 
   conn.on('connect', () => {
-    console.log('\n# Connected to server! #');
+    console.log(' # Connected to server! #\n');
     conn.write("Name: jc🙂");
   });
 
@@ -18,7 +18,7 @@ const connect = () => {
   });
 
   conn.on('end', () => {
-    console.log('# Disconnected from server. #\n');
+    console.log(' # Disconnected from server #\n');
     process.exit();
   });
 
