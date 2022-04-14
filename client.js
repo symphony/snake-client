@@ -1,7 +1,8 @@
 const net = require('net');
+const { IP, PORT, NAME } = require('./constants');
 const config = {
-  host: '165.227.47.243',
-  port: 50541
+  host: IP,
+  port: PORT
 };
 
 const connect = () => {
@@ -10,7 +11,7 @@ const connect = () => {
 
   conn.on('connect', () => {
     console.log(' # Connected to server! #\n');
-    conn.write("Name: jc🙂");
+    conn.write(`Name: ${NAME}`);
   });
 
   conn.on('data', (data) => {
